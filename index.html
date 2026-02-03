@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title> asha's digital reality </title>
-	<link href="wip.css" rel="stylesheet" type="text/css" media="all">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>asha's digital reality</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
-	<h1> asha! where the f*ck are you?!</h1>
+	<div class="audio-container">
+		<audio id="bgAudio" loop>
+			<source src="audio/music.mp3" type="audio/mpeg">
+		</audio>
 
-	<h2 class="blink_me"> coming soon...</h2>
+		<button id="muteBtn" aria-label="Toggle sound">
+			<img src="icons/Speaker-0.png" class="volume-on">
+			<img src="icons/Speaker-Crossed.png" class="volume-off hidden">
+		</button>
 
+		<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.4" />
+		<audio id="sfxSide" src="audio/get1.mp3" preload="auto"></audio>
+		<audio id="sfxContinue" src="audio/select2.mp3" preload="auto"></audio>
+		<audio id="sfxBack" src="audio/select1.mp3" preload="auto"></audio>
+
+	</div>
+
+	<div class="console-stack">
+		<div class="console">
+
+			<div class="screen-area">
+
+				<!-- SIDE BUTTONS -->
+				<div class="side-buttons">
+					<button data-state="start">START</button>
+					<button data-state="what">WHAT?</button>
+					<button data-state="how">HOW?</button>
+					<button data-state="connect">CONNECT</button>
+				</div>
+
+				<!-- SCREEN -->
+				<div class="screen-frame">
+					<div class="screen-inner">
+
+						<div class="screen-content" id="screenText"></div>
+						<div class="screen-buttons">
+							<button class="screen-back hidden" id="backBtn" type="button">
+								← BACK
+							</button>
+							<button class="screen-continue hidden" id="continueBtn" type="button">
+								CONTINUE →
+							</button>
+						</div>
+
+						<div class="scanlines"></div>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="socials">
+			<a href="https://youtube.com/@YOURNAME" target="_blank" aria-label="YouTube">
+				<img src="icons/Instagram.png" alt="YouTube">
+			</a>
+
+			<a href="https://linkedin.com/in/YOURNAME" target="_blank" aria-label="LinkedIn">
+				<img src="icons/LinkedIn.png" alt="LinkedIn">
+			</a>
+
+			<a href="https://instagram.com/YOURNAME" target="_blank" aria-label="Instagram">
+				<img src="icons/Instagram.png" alt="Instagram">
+			</a>
+		</div>
+	</div>
+
+
+	<script src="script.js"></script>
 </body>
+
 </html>
