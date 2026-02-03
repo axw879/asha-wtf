@@ -258,7 +258,7 @@ function typeText(text, onComplete) {
                 ![" ", "\n", ".", ",", "!", "?"].includes(char)
             ) {
                 playSFX("type", {
-                    volume: 0.035,
+                    volume: 0.05,
                     rate: 1.8 + Math.random() * 0.3,
 
                     randomizeRate: 0.2,
