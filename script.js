@@ -1,5 +1,5 @@
 /* ===============================
-   AUDIO ENGINE (CRT STYLE)
+   AUDIO ENGINE(CRT STYLE)
 ================================ */
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -23,7 +23,7 @@ const typeHighpass = audioCtx.createBiquadFilter();
 typeHighpass.type = "highpass";
 typeHighpass.frequency.value = 1200;
 
-/* WIRE GRAPH (ONCE) */
+/* WIREGRAPH (ONCE) */
 distortion.connect(lowpass);
 lowpass.connect(sfxGain);
 
@@ -31,16 +31,16 @@ typeHighpass.connect(sfxGain);
 
 sfxGain.connect(audioCtx.destination);
 
-/* DISTORTION CURVE */
+/* DISTORTION CURVE*/
 function makeDistortionCurve(amount) {
-  const k = amount;
-  const n = 44100;
-  const curve = new Float32Array(n);
-  for (let i = 0; i < n; i++) {
-    const x = (i * 2) / n - 1;
-    curve[i] = (1 + k) * x / (1 + k * Math.abs(x));
-  }
-  return curve;
+    const k = amount;
+    const n = 44100;
+    const curve = new Float32Array(n);
+    for (let i = 0; i < n; i++) {
+        const x = (i * 2) / n - 1;
+        curve[i] = (1 + k) * x / (1 + k * Math.abs(x));
+    }
+    return curve;
 }
 
 /* ===============================
@@ -50,16 +50,16 @@ function makeDistortionCurve(amount) {
 const buffers = {};
 
 async function loadSFX(name, url) {
-  const res = await fetch(url);
-  const arrayBuffer = await res.arrayBuffer();
-  buffers[name] = await audioCtx.decodeAudioData(arrayBuffer);
+    const res = await fetch(url);
+    const arrayBuffer = await res.arrayBuffer();
+    buffers[name] = await audioCtx.decodeAudioData(arrayBuffer);
 }
 
 Promise.all([
-  loadSFX("side", "audio/get1.mp3"),
-  loadSFX("continue", "audio/select2.mp3"),
-  loadSFX("back", "audio/select1.mp3"),
-  loadSFX("type", "audio/blip.mp3")
+    loadSFX("side", "audio/get1.mp3"),
+    loadSFX("continue", "audio/select2.mp3"),
+    loadSFX("back", "audio/select1.mp3"),
+    loadSFX("type", "audio/blip.mp3")
 ]);
 
 /* ===============================
@@ -67,39 +67,39 @@ Promise.all([
 ================================ */
 
 function playSFX(
-  name,
-  {
-    volume = 1,
-    rate = 1,
-    randomizeRate = 0,
-    clean = false
-  } = {}
+    name,
+    {
+        volume = 2,
+        rate = 1,
+        randomizeRate = 0,
+        clean = false
+    } = {}
 ) {
-  if (!buffers[name]) return;
+    if (!buffers[name]) return;
 
-  const source = audioCtx.createBufferSource();
-  source.buffer = buffers[name];
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffers[name];
 
-  source.playbackRate.value =
-    rate + (Math.random() * randomizeRate * 2 - randomizeRate);
+    source.playbackRate.value =
+        rate + (Math.random() * randomizeRate * 2 - randomizeRate);
 
-  const gainNode = audioCtx.createGain();
-  gainNode.gain.value = volume;
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.value = volume;
 
-  source.connect(gainNode);
+    source.connect(gainNode);
 
-  if (clean) {
-    // typing → clean path
-    gainNode.connect(typeHighpass);
-  } else {
-    // buttons → CRT chain
-    gainNode.connect(distortion);
-  }
+    if (clean) {
+        // typing  clean path
+        gainNode.connect(typeHighpass);
+    } else {
+        // buttons  CRT chain
+        gainNode.connect(distortion);
+    }
 
-  source.start();
+    source.start();
 }
 /* ===============================
-   INTERACTIVE FLOW
+   INTERACTIVEFLOW
 ================================ */
 
 
@@ -117,11 +117,11 @@ const flows = {
     start: [
         {
             text: "what if your customers came back because your brand was actually fun?",
-            continueLabel: "CONTINUE →"
+            continueLabel: "HUH?"
         },
         {
             text:
-                "i design game experiences for e-commerce brands who've hit a plateau.\n\nno discounts. no gimmicks. just play.",
+                "my name is asha, and i design game experiences for e-commerce brands who've hit a plateau.\n\nno discounts. no gimmicks. just play.",
             continueLabel: "GO ON...",
             nextFlow: "what"
         }
@@ -131,10 +131,10 @@ const flows = {
         {
             text:
                 "most brands rely on urgency.\npoints. discounts. fake scarcity.",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
         {
-            text: "games rely on curiosity.\nprogress. identity. choice.",
+            text: "games rely on curiosity.\nprogress. identity. choice.\n\nand players keep coming back.",
             continueLabel: "SO?"
         },
         {
@@ -147,8 +147,8 @@ const flows = {
     how: [
         {
             text:
-                "by creating design systems, identity systems, and progress systems.\nthese work together to make play a core part of the customer journey.",
-            continueLabel: "CONTINUE →"
+                "by creating design systems, identity systems, and progress systems.\n\nthese work together to make play a core part of the customer journey.",
+            continueLabel: "CONTINUE"
         },
 
         {
@@ -159,62 +159,77 @@ const flows = {
         {
             text:
                 "here's how we can work together:",
-            continueLabel: "CONTINUE →",
+            continueLabel: "CONTINUE",
         },
 
         {
             text:
                 "tier 1:  game loop  (starting at $2,500)\n\n✰ loyalty program games\n✰ email & social challenges\n✰ scavenger hunts\n\nbest for brands testing gamification\n\ntimeline: 4–6 weeks",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "tier 2:  interactive experience (starting at $4,700)\n\n✰ custom web-based games\n✰ branded standalone experiences\n\nbest for brands making play part of the journey\n\ntimeline: 8–10 weeks",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "tier 3:  full game system (starting at $8,200)\n\n✰ complete game integration\n✰ ongoing updates\n✰ live support\n\noptional maintenance:\n$750-1000 / month\n\ntimeline: 10–12 weeks",
-            continueLabel: "PROCESS? →"
+            continueLabel: "CONTINUE "
+        },
+        {
+            text:
+                "the goal? repeat engagement and repeat purchases within 90 days.",
+            continueLabel: "HOW DOES IT WORK?"
         },
         {
             text:
                 "the process is simple:",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "step 1:  discovery call\n\nwe talk about:\n✰ your brand\n✰ your pain points\n✰ your customers",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "step 2:  game design & strategy\n\ni design a custom game system aligned with your business goals",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "step 3:  build & launch\n\nwe go live, iterate, and watch engagement grow",
-            continueLabel: "CONTINUE →"
+            continueLabel: "CONTINUE"
         },
 
         {
             text:
                 "step 4:  optional ongoing support\n\nmaintenance retainer for live experiences",
-            continueLabel: "LET'S CONNECT →",
+            continueLabel: "WHY YOU? ",
             nextFlow: "connect"
         }
     ],
     connect: [
         {
             text:
-                "this is where we talk.\n\nno decks.\nno pressure.\njust ideas.",
-            continueLabel: "LET’S TALK",
+                "i've been designing playful digital experiences since i was 12—from monetizing a gaming youtube channel at 14 to building interactive games and archives for creatives and studios.",
+            continueLabel: "CONTINUE"
+        },
+        {
+            text:
+                "now i'm focused on one thing:\nhelping e-commerce brands turn customer engagement into play.",
+            continueLabel: "CONTINUE"
+        },
+        {
+            text:
+                "ready to make your business fun again?",
+            continueLabel: "LET’S CONNECT",
             nextFlow: "loading"
         }
     ],
@@ -250,9 +265,10 @@ function typeText(text, onComplete) {
         if (typingIndex < currentText.length) {
             textEl.textContent += currentText[typingIndex];
 
-            // play blip every 2–3 chars
-            const char = currentText[typingIndex];
+            // AUTO-SCROLL: This keeps the last line in view
+            textEl.scrollTop = textEl.scrollHeight;
 
+            const char = currentText[typingIndex];
             if (
                 typingIndex % 3 === 0 &&
                 ![" ", "\n", ".", ",", "!", "?"].includes(char)
@@ -260,14 +276,10 @@ function typeText(text, onComplete) {
                 playSFX("type", {
                     volume: 0.05,
                     rate: 1.8 + Math.random() * 0.3,
-
                     randomizeRate: 0.2,
                     clean: true
                 });
             }
-
-
-
             typingIndex++;
         } else {
             clearInterval(typingInterval);
@@ -275,10 +287,8 @@ function typeText(text, onComplete) {
             if (onComplete) onComplete();
         }
     }, 42);
-
-
-
 }
+
 function saveHistory() {
     // never save the very first screen
     if (currentFlow === "start" && currentStep === 0) return;
@@ -294,16 +304,12 @@ function renderStep() {
     const step = flows[currentFlow][currentStep];
 
     continueBtn.classList.add("hidden");
-    backBtn.classList.add("hidden"); // always hide first
+    backBtn.classList.add("hidden");
 
     typeText(step.text || "", () => {
-
-        // ❌ no back button on very first screen
-        const isFirstScreen =
-            currentFlow === "start" && currentStep === 0;
+        const isFirstScreen = currentFlow === "start" && currentStep === 0;
 
         if (!isFirstScreen && historyStack.length > 0) {
-
             backBtn.classList.remove("hidden");
         }
 
@@ -311,6 +317,13 @@ function renderStep() {
             continueBtn.textContent = step.continueLabel;
             continueBtn.classList.remove("hidden");
         }
+
+        // --- ADD THIS FIX HERE ---
+        // Wait a tiny fraction of a second for the browser to calculate 
+        // the new height now that buttons are visible, then scroll.
+        setTimeout(() => {
+            textEl.scrollTop = textEl.scrollHeight;
+        }, 10);
     });
 }
 
@@ -337,13 +350,11 @@ backBtn.addEventListener("click", () => {
 
 
 function redirectToCalendly() {
-    setTimeout(() => {
         window.open(
-            "https://calendly.com/YOUR-CALENDLY-LINK",
+            "https://calendly.com/its-asha/30min",
             "_blank",
             "noopener,noreferrer"
         );
-    }, 1800);
 }
 
 
@@ -379,6 +390,15 @@ continueBtn.addEventListener("click", () => {
 
     if (step.autoRedirect) {
         redirectToCalendly();
+        return;
+    }
+    if (step.nextFlow === "loading") {
+        window.open("https://calendly.com/its-asha/30min", "_blank", "noopener,noreferrer");
+        
+        saveHistory();
+        currentFlow = "loading";
+        currentStep = 0;
+        renderStep(); 
         return;
     }
 
@@ -444,12 +464,12 @@ function setSFXVolume(v) {
 
 /* Mute toggle */
 muteBtn.addEventListener("click", e => {
-  e.stopPropagation();
+    e.stopPropagation();
 
-  audio.muted = !audio.muted;
-  sfxGain.gain.value = audio.muted ? 0 : volumeSlider.value * 0.2;
+    audio.muted = !audio.muted;
+    sfxGain.gain.value = audio.muted ? 0 : volumeSlider.value * 0.2;
 
-  updateIcon();
+    updateIcon();
 });
 
 

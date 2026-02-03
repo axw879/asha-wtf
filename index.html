@@ -2,80 +2,116 @@
 <html lang="en">
 
 <head>
-	<title>asha's digital reality</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="styles.css" rel="stylesheet">
+
+	<!-- Primary Meta Tags -->
+	<title>asha.wtf — make your brand fun again</title>
+	<meta name="title" content="asha.wtf — game design for e-commerce brands">
+	<meta name="description"
+		content="i design game experiences for e-commerce brands who've hit a plateau. no discounts, no gimmicks—just play that brings customers back.">
+	<meta name="keywords"
+		content="gamification, e-commerce, game design, customer engagement, loyalty programs, interactive experiences">
+	<meta name="author" content="Asha">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://asha.wtf/">
+	<meta property="og:title" content="what if your customers came back because your brand was actually fun?">
+	<meta property="og:description"
+		content="game design for e-commerce brands ready to turn engagement into play. by asha @ asha.wtf">
+	<meta property="og:image" content="https://asha.wtf/og-image.jpg">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://asha.wtf/">
+	<meta property="twitter:title" content="what if your customers came back because your brand was actually fun?">
+	<meta property="twitter:description"
+		content="game design for e-commerce brands ready to turn engagement into play. by asha @ asha.wtf">
+	<meta property="twitter:image" content="https://asha.wtf/og-image.jpg">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 
 <body>
-	<div class="audio-container">
-		<audio id="bgAudio" loop>
-			<source src="audio/music.mp3" type="audio/mpeg">
-		</audio>
-
-		<button id="muteBtn" aria-label="Toggle sound">
-			<img src="icons/Speaker-0.png" class="volume-on">
-			<img src="icons/Speaker-Crossed.png" class="volume-off hidden">
-		</button>
-
-		<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.4" />
-		<audio id="sfxSide" src="audio/get1.mp3" preload="auto"></audio>
-		<audio id="sfxContinue" src="audio/select2.mp3" preload="auto"></audio>
-		<audio id="sfxBack" src="audio/select1.mp3" preload="auto"></audio>
-
-	</div>
 
 	<div class="console-stack">
-		<div class="console">
+		<div class="audio-container">
+			<audio id="bgAudio" loop>
+				<source src="audio/music.mp3" type="audio/mpeg">
+			</audio>
 
-			<div class="screen-area">
+			<button id="muteBtn" aria-label="Toggle sound">
+				<img src="icons/Speaker-0.png" class="volume-on">
+				<img src="icons/Speaker-Crossed.png" class="volume-off hidden">
+			</button>
 
-				<!-- SIDE BUTTONS -->
-				<div class="side-buttons">
-					<button data-state="start">START</button>
-					<button data-state="what">WHAT?</button>
-					<button data-state="how">HOW?</button>
-					<button data-state="connect">CONNECT</button>
-				</div>
+			<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.4" />
+			<audio id="sfxSide" src="audio/get1.mp3" preload="auto"></audio>
+			<audio id="sfxContinue" src="audio/select2.mp3" preload="auto"></audio>
+			<audio id="sfxBack" src="audio/select1.mp3" preload="auto"></audio>
 
-				<!-- SCREEN -->
-				<div class="screen-frame">
-					<div class="screen-inner">
+		</div>
+		<div class="console-wrapper">
+			<div class="console">
 
-						<div class="screen-content" id="screenText"></div>
-						<div class="screen-buttons">
-							<button class="screen-back hidden" id="backBtn" type="button">
-								← BACK
-							</button>
-							<button class="screen-continue hidden" id="continueBtn" type="button">
-								CONTINUE →
-							</button>
-						</div>
+				<div class="screen-area">
 
-						<div class="scanlines"></div>
-
+					<!-- SIDE BUTTONS -->
+					<div class="side-buttons">
+						<button data-state="start">START</button>
+						<button data-state="what">WHAT?</button>
+						<button data-state="how">HOW?</button>
+						<button data-state="connect">CONNECT</button>
 					</div>
+
+					<!-- SCREEN -->
+					<div class="screen-frame">
+						<div class="screen-inner">
+
+							<div class="screen-content" id="screenText"></div>
+							<div class="screen-buttons">
+								<button class="screen-back hidden" id="backBtn" type="button">
+									← BACK
+								</button>
+								<button class="screen-continue hidden" id="continueBtn" type="button">
+									CONTINUE →
+								</button>
+							</div>
+
+							<div class="scanlines"></div>
+
+						</div>
+					</div>
+
 				</div>
 
 			</div>
-
 		</div>
 		<div class="socials">
-			<a href="https://youtube.com/@YOURNAME" target="_blank" aria-label="YouTube">
-				<img src="icons/Instagram.png" alt="YouTube">
+			<a href="https://ashalamalaka.kit.com/e669b08373" target="_blank" aria-label="Newsletter">
+				<img src="icons/Email.png" alt="Newsletter">
+			</a>
+			<a href="https://www.youtube.com/@ashalamalaka" target="_blank" aria-label="YouTube">
+				<img src="icons/Youtube.png" alt="YouTube">
 			</a>
 
-			<a href="https://linkedin.com/in/YOURNAME" target="_blank" aria-label="LinkedIn">
+			<a href="https://www.linkedin.com/in/itsashawills" target="_blank" aria-label="LinkedIn">
 				<img src="icons/LinkedIn.png" alt="LinkedIn">
 			</a>
 
-			<a href="https://instagram.com/YOURNAME" target="_blank" aria-label="Instagram">
+			<a href="https://www.instagram.com/ashalamalaka/" target="_blank" aria-label="Instagram">
 				<img src="icons/Instagram.png" alt="Instagram">
 			</a>
 		</div>
 	</div>
-
+	<footer>
+		<p>© 2026 asha.wtf — let's make business fun again</p>
+	</footer>
 
 	<script src="script.js"></script>
 </body>
