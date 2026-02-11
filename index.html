@@ -36,6 +36,15 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNYB8RR1QK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNYB8RR1QK');
+</script>
 
 <body>
 
@@ -64,8 +73,8 @@
 					<!-- SIDE BUTTONS -->
 					<div class="side-buttons">
 						<button data-state="start">START</button>
-						<button data-state="what">WHAT?</button>
-						<button data-state="how">HOW?</button>
+						<button data-state="me">ABOUT ME</button>
+						<button data-state="packages">PACKAGES</button>
 						<button data-state="connect">CONNECT</button>
 					</div>
 
@@ -74,19 +83,22 @@
 						<div class="screen-inner">
 
 							<div class="screen-content" id="screenText"></div>
-							<div class="screen-buttons">
+
+							<div class="scanlines"></div>
+
+						</div>
+					</div>
+					<div class="screen-buttons">
 								<button class="screen-back hidden" id="backBtn" type="button">
 									← BACK
 								</button>
 								<button class="screen-continue hidden" id="continueBtn" type="button">
 									CONTINUE →
 								</button>
+								<button class="screen-skip hidden" id="skipBtn" type="button">
+									SKIP >>
+								</button>
 							</div>
-
-							<div class="scanlines"></div>
-
-						</div>
-					</div>
 
 				</div>
 
@@ -115,6 +127,5 @@
 
 	<script src="script.js"></script>
 </body>
-
 
 </html>
