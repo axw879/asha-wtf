@@ -15,11 +15,14 @@
 /* =========================
    GLOBAL RESET
 ========================= */
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     image-rendering: pixelated;
     -webkit-font-smoothing: none;
 }
+
 
 
 /* =========================
@@ -61,14 +64,11 @@
    BODY
 ========================= */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 0;
     min-height: 100vh;
     display: grid;
     place-items: center;
+
     padding: 60px 10px;
 
     background: url(imgs/bg2.gif) center / cover no-repeat fixed;
@@ -82,13 +82,14 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-inline: clamp(20px, 6vw, 80px);
 }
 
 .audio-container {
     position: relative;
     top: 0;
     margin-bottom: 40px;
-    width: fit-content; 
+    width: fit-content;
     z-index: 10;
 
     display: flex;
@@ -155,8 +156,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0; 
+    padding: 40px 0;
 }
+
 .console {
     width: 90vw;
     max-width: 700px;
@@ -188,6 +190,16 @@ body {
         transform: scale(1.3);
     }
 }
+
+@media (max-width: 480px) {
+
+    .console {
+         width: 100%;
+        max-width: 100%;
+    }
+
+}
+
 
 /* =========================
    SOCIAL ICON BAR
@@ -337,7 +349,7 @@ body {
     border: 1px solid var(--cyan-glow);
     border-radius: 4px;
     box-shadow: 0 0 5px var(--cyan-glow);
-    
+
 }
 
 .screen-content::-webkit-scrollbar-thumb:hover {
@@ -363,7 +375,7 @@ body {
     gap: 24px;
     align-items: center;
     margin: 0 auto;
-    
+
 }
 
 .controls {
@@ -378,7 +390,7 @@ body {
     justify-content: center;
     gap: 12px;
     width: 100%;
-    grid-column: 2; 
+    grid-column: 2;
     grid-row: 2;
 }
 
@@ -417,7 +429,8 @@ body {
 ========================= */
 .side-buttons button,
 .screen-continue,
-.screen-back,.screen-skip {
+.screen-back,
+.screen-skip {
     font-family: "PPNeueBit", sans-serif;
     cursor: pointer;
     border-radius: 6px;
@@ -451,7 +464,8 @@ body {
 }
 
 .screen-continue,
-.screen-back, .screen-skip {
+.screen-back,
+.screen-skip {
     font-size: 1rem;
     padding: 8px 16px;
     letter-spacing: .05em;
@@ -464,7 +478,8 @@ body {
 /* Hover / Focus (CRT Glow) */
 .side-buttons button:hover,
 .screen-continue:hover,
-.screen-back:hover, .screen-skip:hover {
+.screen-back:hover,
+.screen-skip:hover {
     box-shadow:
         0 0 6px rgba(189, 242, 242, .6),
         0 0 14px rgba(189, 242, 242, .4),
@@ -474,7 +489,8 @@ body {
 /* Active */
 .side-buttons button:active,
 .screen-continue:active,
-.screen-back:active, .screen-skip:active {
+.screen-back:active,
+.screen-skip:active {
     transform: translateY(2px);
     box-shadow:
         inset 2px 2px 0 rgba(0, 0, 0, .5),
@@ -544,26 +560,34 @@ footer {
    RESPONSIVE ADJUSTMENTS
 ========================= */
 @media (max-width: 480px) {
+
     .screen-area {
         grid-template-columns: 1fr;
-        /* Stack buttons on narrow mobile */
-        gap: 15px;
-    }
-
-    .side-buttons {
-        flex-direction: row;
-        /* Buttons sit side-by-side on mobile */
-        justify-content: center;
+        grid-template-rows: auto auto auto;
+        align-items: start;
     }
 
     .screen-frame {
-        width: 100%;
-        /* Frame fits inside console width */
-        height: auto;
+        grid-column: 1;
+        grid-row: 2;
+        max-height: 60vh;
+
     }
 
-    .audio-container {
-        width: auto;
-        white-space: nowrap;
+    .side-buttons {
+        grid-column: 1;
+        grid-row: 1;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+
     }
+
+
+    .screen-buttons {
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+    }
+
 }
