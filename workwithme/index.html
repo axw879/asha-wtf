@@ -58,7 +58,7 @@
 
     .eyebrow {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 18px;
+      font-size: 21px;
       letter-spacing: 0.15em;
       color: var(--cyan-glow);
       text-shadow: 0 0 8px rgba(189,242,242,.5);
@@ -174,6 +174,14 @@
       box-shadow: 0 0 10px rgba(189,242,242,.6), inset 0 0 6px rgba(189,242,242,.2);
     }
 
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      display: block;
+      margin-bottom: 8px;
+      image-rendering: pixelated;
+    }
+
     .service-name {
       font-family: "PPMondwest", sans-serif;
       font-size: 17px;
@@ -183,7 +191,7 @@
 
     .service-desc {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
+      font-size: 21px;
       color: var(--blue-frame);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
@@ -198,7 +206,7 @@
     .selected-tag {
       display: none;
       font-family: "PPNeueBit", sans-serif;
-      font-size: 14px;
+      font-size: 21px;
       background: rgba(125,217,232,.2);
       border: 1px solid var(--cyan-active);
       border-radius: 3px;
@@ -229,7 +237,7 @@
       border-radius: 3px;
       padding: 8px 10px;
       font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
+      font-size: 18px;
       color: var(--off-black);
       outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
@@ -283,7 +291,7 @@
 
     .submit-note {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
+      font-size: 18px;
       color: var(--blue-frame);
       opacity: 0.7;
     }
@@ -370,18 +378,22 @@
 
         <div class="services">
           <div class="service-card" data-service="Web Design" onclick="selectService(this)">
+            <img class="service-icon" src="../icons/computer.png" alt="" />
             <p class="service-name">Web design</p>
             <p class="service-desc">Custom websites, landing pages, and UI design</p>
           </div>
           <div class="service-card" data-service="Animation" onclick="selectService(this)">
+            <img class="service-icon" src="../icons/animation.png" alt="" />
             <p class="service-name">Animation</p>
             <p class="service-desc">Motion graphics, 2D animation, and explainer content</p>
           </div>
           <div class="service-card" data-service="3D Modeling" onclick="selectService(this)">
+            <img class="service-icon" src="../icons/3d.png" alt="" />
             <p class="service-name">3D modeling</p>
             <p class="service-desc">3D assets, scenes, and renders for any medium</p>
           </div>
           <div class="service-card" data-service="Illustration" onclick="selectService(this)">
+            <img class="service-icon" src="../icons/design.png" alt="" />
             <p class="service-name">Illustration</p>
             <p class="service-desc">Graphic design, illustration, and visual identity</p>
           </div>
