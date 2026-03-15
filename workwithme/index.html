@@ -58,7 +58,7 @@
 
     .eyebrow {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
+      font-size: 18px;
       letter-spacing: 0.15em;
       color: var(--cyan-glow);
       text-shadow: 0 0 8px rgba(189,242,242,.5);
@@ -67,7 +67,7 @@
 
     h1 {
       font-family: "PPMondwest", sans-serif;
-      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       color: var(--white);
       text-shadow: 0 2px 0 #000, 0 0 14px rgba(255,255,255,.5);
       margin: 0;
@@ -136,8 +136,8 @@
     }
 
     .section-label {
-      font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
+      font-family: "PPMondwest", sans-serif;
+      font-size: 17px;
       letter-spacing: 0.08em;
       color: var(--blue-frame);
       margin-bottom: 10px;
@@ -175,15 +175,15 @@
     }
 
     .service-name {
-      font-family: "PPNeueBit", sans-serif;
-      font-size: 15px;
+      font-family: "PPMondwest", sans-serif;
+      font-size: 17px;
       color: var(--off-black);
       margin-bottom: 3px;
     }
 
     .service-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-family: "PPNeueBit", sans-serif;
+      font-size: 13px;
       color: var(--blue-frame);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
@@ -198,7 +198,7 @@
     .selected-tag {
       display: none;
       font-family: "PPNeueBit", sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       background: rgba(125,217,232,.2);
       border: 1px solid var(--cyan-active);
       border-radius: 3px;
@@ -212,8 +212,8 @@
 
     label {
       display: block;
-      font-family: "PPNeueBit", sans-serif;
-      font-size: 12px;
+      font-family: "PPMondwest", sans-serif;
+      font-size: 14px;
       letter-spacing: 0.05em;
       color: var(--blue-frame);
       margin-bottom: 4px;
@@ -228,7 +228,7 @@
       border: 2px ridge var(--ui-border-mid);
       border-radius: 3px;
       padding: 8px 10px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: "PPNeueBit", sans-serif;
       font-size: 13px;
       color: var(--off-black);
       outline: none;
@@ -283,14 +283,14 @@
 
     .submit-note {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 11px;
+      font-size: 13px;
       color: var(--blue-frame);
       opacity: 0.7;
     }
 
     .submit-btn {
       font-family: "PPNeueBit", sans-serif;
-      font-size: 15px;
+      font-size: 17px;
       cursor: pointer;
       border-radius: 4px;
       background: linear-gradient(to bottom, var(--cyan-active), var(--blue-button));
@@ -335,31 +335,17 @@
 
     .success-msg h2 {
       font-family: "PPMondwest", sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       color: var(--off-black);
       margin-bottom: 6px;
     }
 
     .success-msg p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-family: "PPNeueBit", sans-serif;
+      font-size: 15px;
       color: var(--blue-frame);
       -webkit-font-smoothing: antialiased;
     }
-
-    .back-link {
-      margin-top: 24px;
-      font-family: "PPNeueBit", sans-serif;
-      font-size: 13px;
-      color: var(--cyan-glow);
-      text-shadow: 0 0 6px rgba(189,242,242,.4);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .back-link:hover { opacity: 1; }
 
     @media (max-width: 480px) {
       .services { grid-template-columns: 1fr; }
@@ -408,7 +394,7 @@
             <p>I'll be in touch within 48 hours.</p>
           </div>
 
-          <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form id="booking-form" action="https://formspree.io/f/mkgvonzj" method="POST">
             <input type="hidden" name="service" id="hidden-service" value="" />
 
             <div class="selected-tag" id="selected-tag"></div>
@@ -477,8 +463,6 @@
       </div>
     </div>
   </div>
-
-  <a href="/" class="back-link">← back to asha.wtf</a>
 
   <script>
     const serviceOptions = {
