@@ -574,6 +574,8 @@
       });
       if (res.ok) {
         form.style.display = 'none';
+        document.querySelector('.services').style.display = 'none';
+        document.querySelector('.section-label').style.display = 'none';
         document.getElementById('success-msg').style.display = 'block';
       } else {
         alert('Something went wrong. Please try again or email me directly.');
