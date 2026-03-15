@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>work with asha</title>
+  <title>Work with Asha</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     @font-face {
@@ -43,7 +43,7 @@
       margin: 0;
       min-height: 100vh;
       padding: 60px 20px 80px;
-      background: url(../imgs/bg3.gif) center / cover no-repeat fixed;
+      background: url(../imgs/bg2.gif) center / cover no-repeat fixed;
       font-family: "PPMondwest", sans-serif;
       overflow-x: hidden;
       display: flex;
@@ -347,6 +347,61 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .socials {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .socials a {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--cyan-active), var(--blue-button));
+      outline: 2px solid var(--ui-border-dark);
+      outline-offset: -4px;
+      border-radius: 6px;
+      box-shadow:
+        inset 1px 1px 0 rgba(255,255,255,.6),
+        inset -1px -1px 0 rgba(0,0,0,.4);
+      transition: transform .1s ease, box-shadow .1s ease;
+    }
+
+    .socials img {
+      max-width: 32px;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.5));
+      image-rendering: pixelated;
+    }
+
+    .socials a:hover {
+      box-shadow:
+        0 0 6px rgba(189,242,242,.6),
+        0 0 14px rgba(189,242,242,.4),
+        inset 1px 1px 0 rgba(255,255,255,.7);
+    }
+
+    .socials a:active {
+      transform: translateY(2px);
+      box-shadow:
+        inset 2px 2px 0 rgba(0,0,0,.5),
+        inset -1px -1px 0 rgba(255,255,255,.4);
+    }
+
+    .socials a:focus-visible {
+      outline: 2px solid var(--cyan-glow);
+      outline-offset: 2px;
+    }
+
+    footer {
+      margin-top: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--white);
+      text-shadow: 0 1px 0 rgba(0,0,0,1);
+    }
+
     @media (max-width: 480px) {
       .services { grid-template-columns: 1fr; }
       .form-two-col { grid-template-columns: 1fr; }
@@ -463,6 +518,25 @@
       </div>
     </div>
   </div>
+
+  <div class="socials">
+    <a href="https://ashalamalaka.kit.com/e669b08373" target="_blank" aria-label="Newsletter">
+      <img src="../icons/Email.png" alt="Newsletter">
+    </a>
+    <a href="https://www.youtube.com/@ashalamalaka" target="_blank" aria-label="YouTube">
+      <img src="../icons/YouTube.png" alt="YouTube">
+    </a>
+    <a href="https://www.linkedin.com/in/itsashawills" target="_blank" aria-label="LinkedIn">
+      <img src="../icons/LinkedIn.png" alt="LinkedIn">
+    </a>
+    <a href="https://www.instagram.com/ashalamalaka/" target="_blank" aria-label="Instagram">
+      <img src="../icons/Instagram.png" alt="Instagram">
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 asha.wtf — let's make business fun again</p>
+  </footer>
 
   <script>
     const serviceOptions = {
